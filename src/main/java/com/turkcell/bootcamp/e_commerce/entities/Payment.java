@@ -1,51 +1,34 @@
 package com.turkcell.bootcamp.e_commerce.entities;
 
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
+@Table
+@Entity
+@Data
 public class Payment {
+ @Column(name = "id")
+ @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int orderId;
-    private Date date;
-    private int amount;
-    private int paymentMethodId;
+ @Column(name="amount")
+    private BigDecimal amount;//bak
 
-    public int getId() {
-        return id;
-    }
+ @Column(name="date")
+    private Date date;//bak
+    @ManyToOne()
+    @JoinColumn(name="payment_method_id")
+    private Payment_Methods paymentMethod;
+    @ManyToOne()
+    @JoinColumn(name="order_id")
+    private Order order;
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public int getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public int getPaymentMethodId() {
-        return paymentMethodId;
-    }
-
-    public void setPaymentMethodId(int paymentMethodId) {
-        this.paymentMethodId = paymentMethodId;
-    }
 }
