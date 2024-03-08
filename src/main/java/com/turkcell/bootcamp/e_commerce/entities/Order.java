@@ -1,51 +1,38 @@
 package com.turkcell.bootcamp.e_commerce.entities;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.catalina.User;
+
 import java.util.Date;
 
+
+@Table(name = "Orders")
+@Entity
+@Getter
+@Setter
 public class Order {
+
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private int id;
-    private int customerId;
+
+
+    @Column(name = "date")
     private Date date;
-    private String Status;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "total_amount")
     private int totalAmount;
 
-    public int getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
-    }
-
-    public int getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(int totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+    @OneToOne
+    private Order_Detail order_detail;
 }
