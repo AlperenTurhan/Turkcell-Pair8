@@ -17,7 +17,7 @@ public class Payment_Methods {
     private int id;
     @Column(name="name")
     private String name;
-    @OneToMany(mappedBy = "payment_methods")
+    @OneToMany(mappedBy = "paymentMethod")
     @JsonIgnore
     private List<Payment> payment;
 }

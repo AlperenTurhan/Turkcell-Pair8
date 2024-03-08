@@ -22,7 +22,7 @@ public class Cart {
     private Customer customer;
     @Column(name = "date")
     private Date date;
-    @OneToMany(mappedBy = "carts")
+    @OneToMany(mappedBy = "cart")
     @JsonIgnore
     private List<Cart_Products> cart_products;
 
