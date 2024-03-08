@@ -3,18 +3,14 @@ package com.turkcell.bootcamp.e_commerce.services.concretes;
 import com.turkcell.bootcamp.e_commerce.entities.Customer;
 import com.turkcell.bootcamp.e_commerce.repositories.abstracts.CustomerRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
-
-    @Autowired
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     @Override
     public void add(Customer customer) throws Exception {
@@ -42,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAll() {
-        return customerRepository.getAll();
+        return customerRepository.findAll();
     }
 
     @Override
