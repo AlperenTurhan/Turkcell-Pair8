@@ -1,5 +1,6 @@
 package com.turkcell.bootcamp.e_commerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,15 +18,14 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
-    @Column(name="name")
 
+    @Column(name="name")
     private String name;
+
     @Column(name = "description")
     private String description;
 
     @OneToMany(mappedBy = "category")
-    List<Product> products;
-
-
-
+    @JsonIgnore
+    private List<Product> products;
 }

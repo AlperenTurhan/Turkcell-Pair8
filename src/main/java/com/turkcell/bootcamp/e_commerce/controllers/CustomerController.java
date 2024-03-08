@@ -2,20 +2,16 @@ package com.turkcell.bootcamp.e_commerce.controllers;
 
 import com.turkcell.bootcamp.e_commerce.entities.Customer;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("/api/customers")
+@AllArgsConstructor
 public class CustomerController {
     private CustomerService customerService;
-
-    @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     @PostMapping
     public void add(@RequestBody Customer customer) throws Exception {
