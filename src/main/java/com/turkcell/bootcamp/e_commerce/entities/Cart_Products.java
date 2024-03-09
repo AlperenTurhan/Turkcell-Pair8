@@ -1,11 +1,15 @@
 package com.turkcell.bootcamp.e_commerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table(name="cart_products")
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cart_Products {
     @Column(name = "id")
     @Id

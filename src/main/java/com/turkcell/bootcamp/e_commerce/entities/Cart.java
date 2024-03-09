@@ -2,7 +2,9 @@ package com.turkcell.bootcamp.e_commerce.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Table(name="carts")
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cart {
    // @OneToMany(mappedBy = "cart")
     @Column(name = "id")
