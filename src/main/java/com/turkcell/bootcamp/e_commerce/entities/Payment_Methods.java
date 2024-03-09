@@ -7,7 +7,7 @@ import lombok.Generated;
 
 import java.util.List;
 
-@Table
+@Table(name="payments_methods")
 @Entity
 @Data
 public class Payment_Methods {

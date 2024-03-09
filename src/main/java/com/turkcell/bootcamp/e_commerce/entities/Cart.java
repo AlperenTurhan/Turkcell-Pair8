@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
-@Table
+@Table(name="carts")
 @Entity
 @Data
 public class Cart {

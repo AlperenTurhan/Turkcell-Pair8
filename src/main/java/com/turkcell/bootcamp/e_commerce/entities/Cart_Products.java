@@ -3,7 +3,7 @@ package com.turkcell.bootcamp.e_commerce.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Table
+@Table(name="cart_products")
 @Entity
 @Data
 public class Cart_Products {

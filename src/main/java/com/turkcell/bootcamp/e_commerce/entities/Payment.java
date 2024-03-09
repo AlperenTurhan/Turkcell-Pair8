@@ -7,7 +7,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Table
+@Table(name="payments")
 @Entity
 @Data
 public class Payment {
