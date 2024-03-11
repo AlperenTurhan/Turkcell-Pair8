@@ -1,10 +1,13 @@
 package com.turkcell.bootcamp.e_commerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Table(name = "sellers")
 @Entity
@@ -23,5 +26,9 @@ public class Seller {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private int user_id;
+    private User user_id;
+
+    @OneToMany(mappedBy = "seller")
+    @JsonIgnore
+    private List<Product> product;
 }
