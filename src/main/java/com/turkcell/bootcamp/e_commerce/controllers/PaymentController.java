@@ -25,11 +25,13 @@ public class PaymentController {
     public void delete(@PathVariable int id) throws Exception{
         paymentService.delete(id);
     }
-
+    /*
     @PutMapping("/update")
     public void update(@RequestBody Payment payment) throws Exception{
         paymentService.update(payment);
     }
+
+     */
 
     @GetMapping("/getall")
     public List<Payment> getAll() {

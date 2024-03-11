@@ -25,10 +25,13 @@ public class SellersController {
     public void delete(@PathVariable int id) throws Exception {
         sellerService.delete(id);
     }
+    /*
     @PutMapping("/update")
     public void update(@RequestBody Seller seller) throws Exception {
         sellerService.update(seller);
     }
+
+     */
     @GetMapping("/{id}")
     public Seller getById(@PathVariable(name = "id") int id) throws Exception {
         return sellerService.getById(id);

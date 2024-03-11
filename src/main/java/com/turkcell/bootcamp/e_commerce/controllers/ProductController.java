@@ -26,9 +26,10 @@ public class ProductController {
     public void delete(@PathVariable int id) throws Exception {
         productService.delete(id);
     }
-    @PutMapping("/update")
-    public void update(@RequestBody Product product) throws Exception {
-        productService.update(product);
+
+    @GetMapping("/{category}")
+    public int getAllProductsByCategoryName(@PathVariable(name = "category") String name) throws Exception{
+        return productService.productAmountByCategoryName(name);
     }
 
     @GetMapping("/getall")

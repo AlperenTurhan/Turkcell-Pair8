@@ -22,11 +22,13 @@ public class CustomerController {
     public void delete(@PathVariable int id) throws Exception {
         customerService.delete(id);
     }
-
+    /*
     @PutMapping("/update")
     public void update(@RequestBody Customer customer) throws Exception {
         customerService.update(customer);
     }
+
+     */
 
     @GetMapping("/getall")
     public List<Customer> getAll() {

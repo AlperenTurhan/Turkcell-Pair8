@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
         if(isIdExist(product.getId())){
             throw new Exception("This product already exists.");
         }
-        productRepository.add(product);
+        productRepository.save(product);
     }
 
     @Override
@@ -28,20 +28,16 @@ public class ProductServiceImpl implements ProductService {
         if (!isIdExist(id)) {
             throw new Exception("There is no such a product");
         }
-        productRepository.delete(id);
+        productRepository.deleteById(id);
     }
 
-    @Override
-    public void update(Product product) throws Exception {
-        if (!isIdExist(product.getId())) {
-            throw new Exception("There is no such a product");
-        }
-        productRepository.update(product);
+    public int productAmountByCategoryName(String name){
+        return productRepository.countProductsByCategoryName(name);
     }
 
     @Override
     public List<Product> getAll() {
-        return productRepository.getAll();
+        return productRepository.findAll();
     }
 
     @Override

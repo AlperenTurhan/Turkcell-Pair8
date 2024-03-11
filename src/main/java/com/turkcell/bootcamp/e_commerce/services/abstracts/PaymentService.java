@@ -8,7 +8,7 @@ import java.util.List;
 public interface PaymentService {
     void add(Payment payment) throws Exception;
     void delete(int id) throws Exception;
-    void update(Payment payment) throws Exception;
+    //void update(Payment payment) throws Exception;
     List<Payment> getAll();
     Payment getById(int id) throws Exception;
 }

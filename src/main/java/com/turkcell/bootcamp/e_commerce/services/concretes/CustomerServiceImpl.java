@@ -17,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(isIdExist(customer.getId())){
             throw new Exception("This customer already exists.");
         }
-        customerRepository.add(customer);
+        customerRepository.save(customer);
     }
 
     @Override
@@ -25,9 +25,9 @@ public class CustomerServiceImpl implements CustomerService {
         if (!isIdExist(id)) {
             throw new Exception("There is no such a customer");
         }
-        customerRepository.delete(id);
+        customerRepository.deleteById(id);
     }
-
+    /*
     @Override
     public void update(Customer customer) throws Exception {
         if (!isIdExist(customer.getId())) {
@@ -35,6 +35,8 @@ public class CustomerServiceImpl implements CustomerService {
         }
         customerRepository.update(customer);
     }
+
+     */
 
     @Override
     public List<Customer> getAll() {

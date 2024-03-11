@@ -27,16 +27,14 @@ public class OrderController {
         orderService.delete(id);
     }
 
-    @PutMapping("/update")
-    public void update(@RequestBody Order order) throws Exception{
-        orderService.update(order);
-    }
 
     @GetMapping("/getall")
     public List<Order> getAll() {
         return orderService.getAll();
 
     }
+
+
 
     @GetMapping("/{id}")
     public Order getById(@PathVariable(name = "id") int id) throws Exception {

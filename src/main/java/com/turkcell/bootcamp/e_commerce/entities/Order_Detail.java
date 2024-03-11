@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
+@Table(name = "order_details")
 @Entity
-@Table
 @Getter
 @Setter
 public class Order_Detail {
@@ -24,7 +26,7 @@ public class Order_Detail {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @OneToMany
-    private Order_Detail_Product order_detail_product;
+    @OneToMany(mappedBy = "order_detail")
+    private List< Order_Detail_Product> order_detail_products;
 
 }

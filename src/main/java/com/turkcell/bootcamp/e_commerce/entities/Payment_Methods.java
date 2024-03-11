@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name="payments_methods")
+@Table(name="payment_methods")
 @Entity
 @Data
 @NoArgsConstructor

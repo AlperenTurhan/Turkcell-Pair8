@@ -7,7 +7,7 @@ import java.util.List;
 public interface OrderService {
     void add(Order order) throws Exception;
     void delete(int id) throws Exception;
-    void update(Order order) throws Exception;
+
     List<Order> getAll();
     Order getById(int id) throws Exception;
 }

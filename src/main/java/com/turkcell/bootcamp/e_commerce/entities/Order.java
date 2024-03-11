@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.catalina.User;
 
-import java.util.Date;
+import java.sql.Date;
 
 
-@Table(name = "Orders")
+@Table(name = "orders")
 @Entity
 @Getter
 @Setter
@@ -27,12 +27,13 @@ public class Order {
     private String status;
 
     @Column(name = "total_amount")
-    private int totalAmount;
+    private double totalAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToOne
+    @JoinColumn(name = "order_detail_id")
     private Order_Detail order_detail;
 }

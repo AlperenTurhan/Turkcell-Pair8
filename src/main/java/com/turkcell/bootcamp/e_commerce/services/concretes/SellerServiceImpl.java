@@ -18,7 +18,7 @@ public class SellerServiceImpl implements SellerService {
         if (isIdExist(seller.getId())) {
             throw new Exception("This seller already exists.");
         }
-        sellerRepository.add(seller);
+        sellerRepository.save(seller);
     }
 
     @Override
@@ -26,9 +26,9 @@ public class SellerServiceImpl implements SellerService {
         if (!isIdExist(id)) {
             throw new Exception("There is no such a seller");
         }
-        sellerRepository.delete(id);
+        sellerRepository.deleteById(id);
     }
-
+    /*
     @Override
     public void update(Seller seller) throws Exception {
         if (!isIdExist(seller.getId())) {
@@ -36,7 +36,7 @@ public class SellerServiceImpl implements SellerService {
         }
         sellerRepository.update(seller);
     }
-
+    */
     @Override
     public List<Seller> getAll() {
         return sellerRepository.findAll();

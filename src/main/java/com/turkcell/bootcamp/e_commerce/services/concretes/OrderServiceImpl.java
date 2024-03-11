@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
@@ -17,12 +17,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void add(Order order) throws Exception {
-        if(isIdExist(order.getId())){
-            throw new Exception("This order is already exist.");
-        }
 
 
-        orderRepository.add(order);
+        orderRepository.save(order);
     }
 
     @Override
@@ -30,28 +27,22 @@ public class OrderServiceImpl implements OrderService {
         if (!isIdExist(id)) {
             throw new Exception("There is no such an order");
         }
-        orderRepository.delete(id);
+        orderRepository.deleteById(id);
     }
 
-    @Override
-    public void update(Order order) throws Exception {
-        if (!isIdExist(order.getId())) {
-            throw new Exception("There is no such an order");
-        }
-        orderRepository.update(order);
-    }
 
     @Override
     public List<Order> getAll() {
-        return orderRepository.getAll();
+        return orderRepository.findAll();
     }
 
     @Override
     public Order getById(int id) throws Exception {
+
         if (!isIdExist(id)) {
             throw new Exception("There is no such an order");
         }
-        return orderRepository.getById(id);
+        return orderRepository.getReferenceById(id);
     }
     public boolean isIdExist(int id) {
         for (Order order : getAll()) {

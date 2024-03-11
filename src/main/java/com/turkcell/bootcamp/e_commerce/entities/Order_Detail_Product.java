@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Table
+@Table(name = "order_details_products")
 @Entity
 @Getter
 @Setter
@@ -19,9 +19,11 @@ public class Order_Detail_Product {
 
 
     //ORDER_DETAIL_PRODUCT definition reason is M-to-M relationship between Order_Details and Products(?)
-    @OneToMany(mappedBy = "order_details_id")
-    private List<Order_Detail> order_details;
+    @ManyToOne
+    @JoinColumn(name = "order_details_id")
+    private Order_Detail order_detail;
 
-    @OneToMany(mappedBy = "product_id")
-    private List<Product> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product order_product;
 }

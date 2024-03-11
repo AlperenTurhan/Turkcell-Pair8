@@ -7,7 +7,7 @@ import java.util.List;
 public interface ProductService {
     void add(Product product) throws Exception;
     void delete(int id) throws Exception;
-    void update(Product product) throws Exception;
+    int productAmountByCategoryName(String name) throws Exception;
     List<Product> getAll();
     Product getById(int id) throws Exception;
 }

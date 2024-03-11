@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    private PaymentRepository paymentRepository;
+    private final PaymentRepository paymentRepository;
     @Autowired
     public PaymentServiceImpl(PaymentRepository paymentRepository){
         this.paymentRepository = paymentRepository;
@@ -22,7 +22,7 @@ public class PaymentServiceImpl implements PaymentService {
         }
 
 
-        paymentRepository.add(payment);
+        paymentRepository.save(payment);
     }
 
     @Override
@@ -30,8 +30,9 @@ public class PaymentServiceImpl implements PaymentService {
         if (!isIdExist(id)) {
             throw new Exception("There is no such an payment");
         }
-        paymentRepository.delete(id);
+        paymentRepository.deleteById(id);
     }
+    /*
 
     @Override
     public void update(Payment payment) throws Exception {
@@ -40,10 +41,14 @@ public class PaymentServiceImpl implements PaymentService {
         }
         paymentRepository.update(payment);
     }
+    */
+
+
+
 
     @Override
     public List<Payment> getAll() {
-        return paymentRepository.getAll();
+        return paymentRepository.findAll();
     }
 
     @Override
