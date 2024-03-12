@@ -1,4 +1,4 @@
-package com.turkcell.bootcamp.e_commerce.repositories.abstracts;
+package com.turkcell.bootcamp.e_commerce.repositories;
 
 import com.turkcell.bootcamp.e_commerce.entities.Cart_Products;
 import org.springframework.data.jpa.repository.JpaRepository;

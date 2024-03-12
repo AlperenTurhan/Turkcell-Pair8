@@ -1,7 +1,7 @@
 package com.turkcell.bootcamp.e_commerce.services.concretes;
 
 import com.turkcell.bootcamp.e_commerce.entities.Seller;
-import com.turkcell.bootcamp.e_commerce.repositories.abstracts.SellerRepository;
+import com.turkcell.bootcamp.e_commerce.repositories.SellerRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.SellerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

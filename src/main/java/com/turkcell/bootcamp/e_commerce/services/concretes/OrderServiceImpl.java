@@ -1,7 +1,7 @@
 package com.turkcell.bootcamp.e_commerce.services.concretes;
 
 import com.turkcell.bootcamp.e_commerce.entities.Order;
-import com.turkcell.bootcamp.e_commerce.repositories.abstracts.OrderRepository;
+import com.turkcell.bootcamp.e_commerce.repositories.OrderRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
