@@ -1,15 +1,23 @@
 package com.turkcell.bootcamp.e_commerce.services.concretes;
 
+import com.turkcell.bootcamp.e_commerce.core.exception.types.BusinessException;
+import com.turkcell.bootcamp.e_commerce.core.services.abstracts.MessageService;
+import com.turkcell.bootcamp.e_commerce.core.services.constants.Messages;
 import com.turkcell.bootcamp.e_commerce.entities.Product;
 import com.turkcell.bootcamp.e_commerce.repositories.abstracts.ProductRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ProductServiceImpl implements ProductService {
-    private final ProductRepository productRepository;
+    private ResourceBundleMessageSource bundleMessageSource;
+    private  ProductRepository productRepository;
+    private MessageService messageService;
 
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
@@ -55,5 +63,12 @@ public class ProductServiceImpl implements ProductService {
             }
         }
         return false;
+    }
+
+    private void productsWithSameNameShouldNotExist(String name){
+        Optional<Product> productWithSameName = productRepository.findByName(name);
+        if (productWithSameName.isPresent()){
+            throw new BusinessException(messageService.getMessageWithArgs(Messages.BusinessErrors.SAME_PRODUCT_NAME_ERROR, name));
+        }
     }
 }
