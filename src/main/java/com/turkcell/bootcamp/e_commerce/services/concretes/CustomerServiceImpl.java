@@ -1,7 +1,7 @@
 package com.turkcell.bootcamp.e_commerce.services.concretes;
 
 import com.turkcell.bootcamp.e_commerce.entities.Customer;
-import com.turkcell.bootcamp.e_commerce.repositories.abstracts.CustomerRepository;
+import com.turkcell.bootcamp.e_commerce.repositories.CustomerRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -59,4 +59,5 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return false;
     }
+
 }

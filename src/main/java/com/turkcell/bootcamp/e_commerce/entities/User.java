@@ -22,7 +22,7 @@ public class User {
     private String name;
 
     @Column(name="last_name")
-    private String last_name;
+    private String lastName;
 
     @Column(name="email")
     private String email;
@@ -31,7 +31,7 @@ public class User {
     private String password;
 
     @Column(name="phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @OneToOne(mappedBy = "user_id")
     private Customer customer;

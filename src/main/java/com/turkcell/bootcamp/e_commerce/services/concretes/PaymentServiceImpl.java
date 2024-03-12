@@ -2,7 +2,7 @@ package com.turkcell.bootcamp.e_commerce.services.concretes;
 
 
 import com.turkcell.bootcamp.e_commerce.entities.Payment;
-import com.turkcell.bootcamp.e_commerce.repositories.abstracts.PaymentRepository;
+import com.turkcell.bootcamp.e_commerce.repositories.PaymentRepository;
 import com.turkcell.bootcamp.e_commerce.services.abstracts.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
