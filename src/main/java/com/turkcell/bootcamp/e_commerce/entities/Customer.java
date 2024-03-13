@@ -20,5 +20,5 @@ public class Customer{
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user_id;
+    private User userId;
 }

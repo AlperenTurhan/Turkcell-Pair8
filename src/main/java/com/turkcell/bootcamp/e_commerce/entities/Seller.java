@@ -22,13 +22,13 @@ public class Seller {
     private int id;
 
     @Column(name="tax_number")
-    private String tax_number;
+    private String taxNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user_id;
+    private User userId;
 
     @OneToMany(mappedBy = "seller")
     @JsonIgnore
-    private List<Product> product;
+    private List<Product> products;
 }
