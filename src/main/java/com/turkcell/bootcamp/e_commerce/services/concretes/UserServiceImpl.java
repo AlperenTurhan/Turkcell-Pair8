@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
         if(!isIdExist(id)){
             throw new BusinessException(messageService.getMessageWithArgs(Messages.BusinessErrors.NOT_FOUND_ERROR, id));
         }
+        userRepository.deleteById(id);
     }
 
     @Override

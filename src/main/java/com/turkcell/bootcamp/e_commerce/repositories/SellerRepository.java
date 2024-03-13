@@ -5,9 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SellerRepository extends JpaRepository<Seller, Integer> {
     @Query("SELECT c.name, COUNT(DISTINCT s.id) AS sellerCount FROM Seller s JOIN s.user u JOIN u.addresses a JOIN a.district d JOIN d.city c GROUP BY c.name")
     List<Object[]> countSellersInCities();
+
+    Optional<Seller> findByTaxNumber(String taxNumber);
 
 }
